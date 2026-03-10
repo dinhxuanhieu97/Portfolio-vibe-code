@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg: var(--theme-bg);
+  --color-surface: var(--theme-surface);
+  --color-surface-hover: var(--theme-surface-hover);
+  --color-border: var(--theme-border);
+
+  --color-primary: var(--theme-primary);
+  --color-accent: var(--theme-accent);
+  --color-text: var(--theme-text);
+  --color-text-muted: var(--theme-text-muted);
+}
+
+:root {
+  --theme-bg: #ffffff;
+  --theme-surface: #f8fafc;
+  --theme-surface-hover: #e2e8f0;
+  --theme-border: #e2e8f0;
+  --theme-primary: #2563eb;
+  --theme-accent: #f97316;
+  --theme-text: #0f172a;
+  --theme-text-muted: #64748b;
+  --theme-glass-bg: rgba(255, 255, 255, 0.65);
+  --theme-glass-border: rgba(255, 255, 255, 0.4);
+  --theme-glass-shadow: rgba(31, 38, 135, 0.07);
+  --theme-glass-shine: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+  --theme-bg: #0b0b10;
+  --theme-surface: #121218;
+  --theme-surface-hover: #1e293b;
+  --theme-border: #1e293b;
+  --theme-primary: #2563eb;
+  --theme-accent: #f97316;
+  --theme-text: #f8fafc;
+  --theme-text-muted: #94a3b8;
+  --theme-glass-bg: rgba(18, 18, 24, 0.6);
+  --theme-glass-border: rgba(255, 255, 255, 0.05);
+  --theme-glass-shadow: rgba(0, 0, 0, 0.2);
+  --theme-glass-shine: rgba(255, 255, 255, 0.03);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Glass Effect */
+.glass-panel {
+  background-color: var(--theme-glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--theme-glass-border);
+  box-shadow: 0 8px 32px 0 var(--theme-glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--theme-glass-shine),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.7s ease;
+  pointer-events: none;
+}
+
+.glass-panel:hover::before {
+  left: 150%;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background-image: linear-gradient(to right, #3b82f6, #a855f7, #f97316);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-image: linear-gradient(to right, var(--color-primary), #3b82f6);
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3), 0 4px 6px -4px rgba(37, 99, 235, 0.3);
+}
+
+/* Neural Network Background Animation */
+@keyframes pulse-node {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}
+
+.nn-node {
+  animation: pulse-node 4s infinite ease-in-out;
+}
