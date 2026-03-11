@@ -5,24 +5,24 @@ const skills = [
   {
     category: "Languages",
     icon: <Code2 className="text-[var(--color-primary)]" size={24} />,
-    items: ["Python", "C++", "SQL", "Bash"],
+    items: ["PHP", "NodeJs", "MySQL", "JavaScript", "jQuery", "Ajax", "HTML5", "CSS3", "Python"],
   },
   {
     category: "Frameworks",
     icon: <Cpu className="text-[var(--color-accent)]" size={24} />,
-    items: ["PyTorch", "TensorFlow", "Scikit-learn", "Keras"],
+    items: ["Wordpress", "Express", "Laravel", "Bootstrap", "TailWind", "ReactJs"],
   },
   {
-    category: "Tools & MLOps",
+    category: "Tools & Workflow",
     icon: <Wrench className="text-[var(--color-primary)]" size={24} />,
-    items: ["Docker", "Kubernetes", "AWS / GCP", "MLFlow", "Git"],
+    items: ["GIT", "Jira", "SVN", "Trello", "Gulp/Pug", "Server Management", "Database Management"],
   },
   {
-    category: "Specialization",
+    category: "Expertise",
     icon: (
       <BrainCircuit className="text-[var(--color-accent)]" size={24} />
     ),
-    items: ["NLP", "Computer Vision", "LLMs", "Time Series"],
+    items: ["WooCommerce", "E-Commerce Plugins", "Webservices", "Mobile Services", "OOP/MVC", "Customer Communication"],
   },
 ];
 

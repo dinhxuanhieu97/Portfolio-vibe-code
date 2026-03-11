@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
+import Experience from "./components/Experience";
 import Blog from "./components/Blog";
 import Certificates from "./components/Certificates";
 import StyleLibrary from "./components/StyleLibrary";
@@ -24,6 +25,7 @@ export default function App() {
       <main className="relative z-10">
         <Hero />
         <TechStack />
+        <Experience />
         <Projects />
         <Blog />
         <Certificates />

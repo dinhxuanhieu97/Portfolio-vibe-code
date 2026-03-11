@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="py-8 text-center text-[var(--color-text-muted)] font-mono text-sm border-t border-[var(--color-border)] mt-24 bg-[var(--color-bg)]">
       <div className="flex justify-center gap-6 mb-6 md:hidden">
         <a
-          href="https://github.com"
+          href="https://github.com/dinhxuanhieu97"
           target="_blank"
           rel="noreferrer"
           className="hover:text-[var(--color-primary)] transition-colors"
@@ -13,7 +13,7 @@ export default function Footer() {
           <Github size={20} />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/hieu-xuan-4b9a26144/"
           target="_blank"
           rel="noreferrer"
           className="hover:text-[var(--color-accent)] transition-colors"

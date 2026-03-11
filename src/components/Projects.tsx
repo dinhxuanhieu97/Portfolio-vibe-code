@@ -3,53 +3,64 @@ import { ExternalLink, Github, Activity, Database, Server } from "lucide-react";
 
 const projects = [
   {
-    title: "Real-time Fraud Detection System",
-    description:
-      "Building a system to classify suspicious transactions for a Fintech platform.",
-    problem:
-      "High false positive rate in legacy rule-based systems causing customer friction and manual review overhead.",
-    solution:
-      "Implemented an XGBoost model combined with SMOTE (Synthetic Minority Over-sampling Technique) for handling imbalanced data.",
-    result:
-      "Reduced the false positive rate by 15%, saving the business $50,000 monthly.",
-    metrics:
-      "Achieved accuracy F1 score = 0.92 and reduced inference time (latency) by 30%.",
-    tech: ["Python", "XGBoost", "Scikit-learn", "Docker", "AWS SageMaker"],
-    github: "https://github.com",
-    demo: "https://huggingface.co",
-    image: "https://picsum.photos/seed/fraud/800/500?blur=2",
+    title: "GameLaDe",
+    description: "Back-End development for a gaming news platform.",
+    problem: "Need for a robust back-end to support high-traffic gaming content.",
+    solution: "Developed using PHP-Wordpress, integrated with MySQL and Rest API.",
+    result: "Successfully deployed and maintained the platform.",
+    metrics: "Optimized for performance and scalability.",
+    tech: ["PHP", "Wordpress", "MySQL", "Rest API", "HTML5", "CSS3", "Javascript", "jQuery"],
+    github: "",
+    demo: "https://gamelade.vn/",
+    image: "/gamelade.jpg",
   },
   {
-    title: "LLM-Powered Customer Support Agent",
-    description:
-      "An autonomous agent capable of resolving complex customer queries using RAG.",
-    problem:
-      "Customer support team was overwhelmed with repetitive technical queries, leading to slow response times.",
-    solution:
-      "Developed a Retrieval-Augmented Generation (RAG) pipeline using LangChain, Pinecone, and fine-tuned Llama 3.",
-    result:
-      "Automated 40% of tier-1 support tickets with high customer satisfaction.",
-    metrics:
-      "Achieved 85% resolution rate on automated tickets. Reduced average response time from 4 hours to 2 seconds.",
-    tech: ["PyTorch", "LangChain", "Pinecone", "FastAPI", "React"],
-    github: "https://github.com",
-    demo: "https://streamlit.io",
-    image: "https://picsum.photos/seed/llm/800/500?blur=2",
+    title: "NIC SPORT",
+    description: "Back-End development for a sports equipment website.",
+    problem: "Need for an e-commerce solution with WooCommerce integration.",
+    solution: "Built with PHP-Wordpress and WooCommerce, optimized with SASS.",
+    result: "Launched a fully functional sports e-commerce site.",
+    metrics: "Integrated Git for version control and optimized API performance.",
+    tech: ["PHP", "Wordpress", "WooCommerce", "HTML5", "SASS", "Javascript", "jQuery", "MySQL", "Git", "Rest API"],
+    github: "",
+    demo: "https://nichelmets.com/",
+    image: "/NIC SPORT.jpg",
   },
   {
-    title: "Computer Vision Defect Detection",
-    description: "Automated quality control for manufacturing assembly lines.",
-    problem:
-      "Manual visual inspection was slow and prone to human error, resulting in defective products reaching customers.",
-    solution:
-      "Trained a YOLOv8 object detection model on custom dataset of manufacturing defects, deployed on edge devices.",
-    result:
-      "Significantly improved defect catch rate and increased production line throughput.",
-    metrics:
-      "Achieved 98.5% mAP@0.5. Inference runs at 60 FPS on edge hardware.",
-    tech: ["Python", "PyTorch", "YOLOv8", "TensorRT", "C++"],
-    github: "https://github.com",
-    image: "https://picsum.photos/seed/vision/800/500?blur=2",
+    title: "Falcon-Helmets",
+    description: "Back-End development for a helmet e-commerce store.",
+    problem: "Need for a secure and scalable e-commerce platform.",
+    solution: "Developed using PHP-Wordpress and WooCommerce.",
+    result: "Successfully launched the e-commerce store.",
+    metrics: "Optimized performance and integrated Rest API.",
+    tech: ["PHP", "Wordpress", "WooCommerce", "HTML5", "SASS", "Javascript", "jQuery", "MySQL", "Git", "Rest API"],
+    github: "",
+    demo: "https://falcon-helmets.com/",
+    image: "/Falcon-Helmets.jpg",
+  },
+  {
+    title: "Poc-Helmet",
+    description: "Web development for a helmet brand.",
+    problem: "Need for a modern web presence.",
+    solution: "Developed using PHP.",
+    result: "Successfully launched the website.",
+    metrics: "Optimized for performance.",
+    tech: ["PHP", "HTML5", "CSS3", "Javascript", "jQuery", "MySQL", "Ajax"],
+    github: "",
+    demo: "https://poc-helmet.com/",
+    image: "/poc-helmet.jpg",
+  },
+  {
+    title: "TechScoop",
+    description: "Back-End development for a tech news platform.",
+    problem: "Need for a content-managed platform.",
+    solution: "Developed using PHP-Wordpress.",
+    result: "Successfully deployed.",
+    metrics: "Optimized for performance and SEO.",
+    tech: ["PHP", "Wordpress", "HTML5", "CSS3", "Javascript", "jQuery", "MySQL", "Rest API", "Ajax"],
+    github: "",
+    demo: "https://techscoop.vn/",
+    image: "/techscoop.jpg",
   },
 ];
 

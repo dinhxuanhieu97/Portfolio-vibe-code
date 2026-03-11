@@ -6,26 +6,42 @@ import ResumeModal from "./ResumeModal";
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const fullText = "Dinh Hieu";
 
   useEffect(() => {
-    let currentText = "";
-    let currentIndex = 0;
-    
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        if (currentIndex < fullText.length) {
-          currentText += fullText[currentIndex];
-          setTypedText(currentText);
-          currentIndex++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 100);
-      return () => clearInterval(interval);
-    }, 600);
+    const phrases = ["Dinh Hieu", "AI Engineer", "Full Stack Developer"];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
 
-    return () => clearTimeout(timeout);
+    const type = () => {
+      const currentPhrase = phrases[phraseIndex];
+      
+      if (isDeleting) {
+        setTypedText(currentPhrase.substring(0, charIndex - 1));
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        setTypedText(currentPhrase.substring(0, charIndex + 1));
+        charIndex++;
+        typingSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typingSpeed = 2000; // Pause at end
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 500;
+      }
+
+      const timeoutId = setTimeout(type, typingSpeed);
+      return () => clearTimeout(timeoutId);
+    };
+
+    const timeoutId = setTimeout(type, 1000);
+    return () => clearTimeout(timeoutId);
   }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -123,10 +139,10 @@ export default function Hero() {
             <a href="mailto:dxhieu97@gmail.com" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
               <Mail size={20} />
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
+            <a href="https://github.com/dinhxuanhieu97" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
+            <a href="https://www.linkedin.com/in/hieu-xuan-4b9a26144/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
               <Linkedin size={20} />
             </a>
           </motion.div>

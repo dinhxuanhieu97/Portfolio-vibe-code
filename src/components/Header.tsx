@@ -32,6 +32,7 @@ export default function Header() {
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
+    { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Research", href: "#research" },
     { name: "Certs", href: "#certificates" },
@@ -80,7 +81,7 @@ export default function Header() {
             {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <a
-            href="https://github.com"
+            href="https://github.com/dinhxuanhieu97"
             target="_blank"
             rel="noreferrer"
             className="hover:text-[var(--color-primary)] transition-colors"
@@ -88,7 +89,7 @@ export default function Header() {
             <Github size={20} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/hieu-xuan-4b9a26144/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-[var(--color-accent)] transition-colors"
@@ -170,7 +171,7 @@ export default function Header() {
                   className="flex flex-wrap gap-4 text-[var(--color-text-muted)] mt-auto pb-8"
                 >
                   <a
-                    href="https://github.com"
+                    href="https://github.com/dinhxuanhieu97"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-[var(--color-primary)] transition-colors"
@@ -178,7 +179,7 @@ export default function Header() {
                     <Github size={24} />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/hieu-xuan-4b9a26144/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-[var(--color-accent)] transition-colors"
