@@ -1,78 +1,40 @@
+import React from "react";
 import { motion } from "motion/react";
-import { Database, Code2, Cpu, Wrench, BrainCircuit } from "lucide-react";
-
-const skills = [
-  {
-    category: "Languages",
-    icon: <Code2 className="text-[var(--color-primary)]" size={24} />,
-    items: ["PHP", "NodeJs", "MySQL", "JavaScript", "jQuery", "Ajax", "HTML5", "CSS3", "Python"],
-  },
-  {
-    category: "Frameworks",
-    icon: <Cpu className="text-[var(--color-accent)]" size={24} />,
-    items: ["Wordpress", "Express", "Laravel", "Bootstrap", "TailWind", "ReactJs"],
-  },
-  {
-    category: "Tools & Workflow",
-    icon: <Wrench className="text-[var(--color-primary)]" size={24} />,
-    items: ["GIT", "Jira", "SVN", "Trello", "Gulp/Pug", "Server Management", "Database Management"],
-  },
-  {
-    category: "Expertise",
-    icon: (
-      <BrainCircuit className="text-[var(--color-accent)]" size={24} />
-    ),
-    items: ["WooCommerce", "E-Commerce Plugins", "Webservices", "Mobile Services", "OOP/MVC", "Customer Communication"],
-  },
-];
+import { portfolioData } from "../data/portfolio";
+import { Cpu } from "lucide-react";
 
 export default function TechStack() {
-  return (
-    <section id="skills" className="py-24 px-6 relative bg-[var(--color-bg)]">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-4 mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text tracking-tight">
-            Technical Arsenal
-          </h2>
-          <div className="h-[1px] bg-[var(--color-border)] flex-grow ml-4"></div>
-        </motion.div>
+  const { techStack } = portfolioData;
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skills.map((skill, index) => (
+  return (
+    <section id="tech-stack" className="py-24 px-6 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="section-label">{techStack.label}</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading">{techStack.title}</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.categories.map((cat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="glass-panel p-6 rounded-xl hover:border-[var(--color-primary)]/30 transition-all duration-300 group"
+              transition={{ delay: index * 0.1 }}
+              className="glass-panel p-8 hover:bg-white/5 transition-colors group"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] group-hover:border-[var(--color-primary)]/50 transition-colors">
-                  {skill.icon}
+                <div className="p-3 bg-primary/10 rounded-xl text-primary group-hover:scale-110 transition-transform">
+                  <Cpu size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-[var(--color-text)]">
-                  {skill.category}
-                </h3>
+                <h3 className="text-lg font-bold font-heading">{cat.name}</h3>
               </div>
-              <ul className="grid grid-cols-2 gap-y-3 gap-x-4">
-                {skill.items.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-2 text-[var(--color-text-muted)] font-mono text-sm"
-                  >
-                    <span className="text-[var(--color-primary)]">▹</span>{" "}
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-text-muted leading-relaxed font-medium">
+                {cat.tools}
+              </p>
             </motion.div>
           ))}
         </div>

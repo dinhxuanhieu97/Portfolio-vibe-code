@@ -57,7 +57,7 @@ export default function Background() {
 
           if (dist < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(37, 99, 235, ${1 - dist / 150})`;
+            ctx.strokeStyle = `rgba(37, 99, 235, ${(1 - dist / 150) * 0.3})`;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.stroke();
@@ -69,7 +69,7 @@ export default function Background() {
       nodes.forEach((node) => {
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(249, 115, 22, 0.8)";
+        ctx.fillStyle = "rgba(249, 115, 22, 0.4)";
         ctx.fill();
       });
 

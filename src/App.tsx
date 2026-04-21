@@ -1,35 +1,33 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React from "react";
 import Background from "./components/Background";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import TechStack from "./components/TechStack";
+import About from "./components/About";
+import Services from "./components/Services";
 import Projects from "./components/Projects";
-import Experience from "./components/Experience";
-import Blog from "./components/Blog";
-import Certificates from "./components/Certificates";
-import StyleLibrary from "./components/StyleLibrary";
+import Process from "./components/Process";
+import TechStack from "./components/TechStack";
+import WhyWorkWithMe from "./components/WhyWorkWithMe";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 
 export default function App() {
   return (
-    <div className="relative min-h-screen text-[var(--color-text)] selection:bg-[var(--color-primary)]/30 selection:text-white">
+    <div className="relative min-h-screen text-text selection:bg-primary/30 selection:text-white bg-bg">
       <Background />
       <Header />
 
       <main className="relative z-10">
         <Hero />
-        <TechStack />
-        <Experience />
+        {/* TrustStrip is integrated into Hero */}
+        <About />
+        <Services />
         <Projects />
-        <Blog />
-        <Certificates />
-        <StyleLibrary />
+        <Process />
+        <TechStack />
+        <WhyWorkWithMe />
+        <Contact />
       </main>
 
       <Footer />

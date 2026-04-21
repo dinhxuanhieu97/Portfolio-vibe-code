@@ -1,173 +1,110 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "motion/react";
-import { ArrowRight, FileText, Github, Linkedin, Mail, Phone } from "lucide-react";
-import ResumeModal from "./ResumeModal";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { portfolioData } from "../data/portfolio";
+import TrustStrip from "./TrustStrip";
 
 export default function Hero() {
-  const [typedText, setTypedText] = useState("");
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const { hero } = portfolioData;
 
-  useEffect(() => {
-    const phrases = ["Dinh Hieu", "AI Engineer", "Full Stack Developer"];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-
-    const type = () => {
-      const currentPhrase = phrases[phraseIndex];
-      
-      if (isDeleting) {
-        setTypedText(currentPhrase.substring(0, charIndex - 1));
-        charIndex--;
-        typingSpeed = 50;
-      } else {
-        setTypedText(currentPhrase.substring(0, charIndex + 1));
-        charIndex++;
-        typingSpeed = 100;
-      }
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        isDeleting = true;
-        typingSpeed = 2000; // Pause at end
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typingSpeed = 500;
-      }
-
-      const timeoutId = setTimeout(type, typingSpeed);
-      return () => clearTimeout(timeoutId);
-    };
-
-    const timeoutId = setTimeout(type, 1000);
-    return () => clearTimeout(timeoutId);
-  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
-    <section
-      id="about"
-      className="min-h-screen relative flex items-center overflow-hidden bg-[var(--color-bg)]"
-    >
-      {/* Background effect */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[var(--color-primary)] opacity-20 blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[var(--color-accent)] opacity-20 blur-[120px]"></div>
-      </div>
+    <section id="home" className="relative pt-32 lg:pt-48 overflow-hidden min-h-screen flex flex-col justify-between">
+      {/* Background Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 blur-[150px] rounded-full -z-10 animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full -z-10 animate-pulse delay-1000"></div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10 pt-20 h-full">
+      <div className="max-w-7xl mx-auto px-6 text-center lg:text-left flex-1 flex flex-col justify-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col justify-center py-10 md:py-20 h-full"
+          className="max-w-4xl mx-auto lg:mx-0"
         >
-          <motion.p
+          <motion.div
             variants={itemVariants}
-            className="text-xl md:text-2xl font-medium text-[var(--color-primary)] mb-2"
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel border-white/10 mb-8"
           >
-            Hi, I am
-          </motion.p>
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+            <span className="text-[10px] md:text-xs font-mono font-bold tracking-[0.2em] text-primary">
+              {hero.badge}
+            </span>
+          </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 gradient-text flex items-center min-h-[1.2em]"
+            className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.1] font-heading"
           >
-            {typedText}
-            <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-              className="ml-2 inline-block w-[4px] h-[0.8em] bg-[var(--color-primary)]"
-            />
+            {hero.headline}
           </motion.h1>
-
-          <motion.h2
-            variants={itemVariants}
-            className="text-xl md:text-2xl font-medium tracking-tight text-[var(--color-text-muted)] mb-6"
-          >
-            I build scalable Machine Learning systems.
-          </motion.h2>
 
           <motion.p
             variants={itemVariants}
-            className="text-base md:text-lg text-[var(--color-text-muted)] max-w-lg mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-text-muted font-medium mb-4"
           >
-            I'm an AI Engineer specializing in transforming raw data into
-            intelligent solutions. My focus is on designing, training, and
-            deploying robust models that drive real-world impact.
+            {hero.subheadline}
+          </motion.p>
+          
+          <motion.p
+            variants={itemVariants}
+            className="text-base md:text-lg text-text-muted/80 max-w-2xl mb-12 leading-relaxed mx-auto lg:mx-0"
+          >
+            {hero.supportingText}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-10">
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="tel:0345995727"
-              className="btn-primary flex items-center gap-2 rounded-xl px-6 py-3 font-medium"
-            >
-              Contact <Phone size={18} />
-            </motion.a>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsResumeOpen(true)}
-              className="flex items-center gap-2 px-6 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium rounded-xl hover:bg-[var(--color-surface)] transition-all duration-300"
-            >
-              <FileText size={18} /> Resume
-            </motion.button>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="flex gap-4">
-            <a href="mailto:dxhieu97@gmail.com" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
-              <Mail size={20} />
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-16"
+          >
+            <a href="#projects" className="btn-primary w-full sm:w-auto">
+              {hero.primaryCTA} <ArrowRight size={20} />
             </a>
-            <a href="https://github.com/dinhxuanhieu97" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
-              <Github size={20} />
-            </a>
-            <a href="https://www.linkedin.com/in/hieu-xuan-4b9a26144/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center rounded-xl shadow-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-muted)]">
-              <Linkedin size={20} />
+            <a href="#contact" className="btn-secondary w-full sm:w-auto">
+              {hero.secondaryCTA}
             </a>
           </motion.div>
-        </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex items-center justify-center relative h-full min-h-[400px] md:min-h-[600px]"
-        >
-          <div className="relative w-full max-w-md aspect-square">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent)] rounded-2xl transform rotate-6 opacity-20 blur-lg"></div>
-            <div className="absolute inset-0 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src="/ht.jpg" 
-                alt="Dinh Hieu" 
-                className="w-full h-full object-cover" 
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          </div>
+          <motion.div
+            variants={itemVariants}
+            className="text-sm text-text-muted/60 font-medium italic"
+          >
+            {hero.smallNote}
+          </motion.div>
         </motion.div>
       </div>
-      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+
+      <div className="mt-12">
+        <TrustStrip />
+        
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="flex justify-center py-8"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-text-muted/30"
+          >
+            <ChevronDown size={32} />
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
