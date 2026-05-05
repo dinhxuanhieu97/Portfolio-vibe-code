@@ -13,6 +13,7 @@
 
   --color-primary: var(--theme-primary);
   --color-accent: var(--theme-accent);
+  --color-blue-400: #60a5fa;
   --color-text: var(--theme-text);
   --color-text-muted: var(--theme-text-muted);
 }
@@ -93,7 +94,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @utility gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-accent bg-[length:200%_auto] animate-gradient-flow font-bold;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-blue-400),
+    var(--color-accent),
+    var(--color-blue-400),
+    var(--color-primary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  font-weight: 700;
+  @apply animate-gradient-flow;
 }
 
 @utility section-label {

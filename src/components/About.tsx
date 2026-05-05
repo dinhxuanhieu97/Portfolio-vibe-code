@@ -14,11 +14,11 @@ export default function About() {
           viewport={{ once: true }}
           className="relative"
         >
-          <div className="aspect-square rounded-3xl overflow-hidden glass-panel border-white/10 relative">
+          <div className="aspect-square rounded-3xl overflow-hidden glass-panel border-white/10 relative group">
             <img
-              src="/ht.jpg"
+              src="/avatar.jpg"
               alt="Dinh Hieu"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-700"
               referrerPolicy="no-referrer"
             />
           </div>

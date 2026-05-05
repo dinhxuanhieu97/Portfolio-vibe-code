@@ -15,14 +15,14 @@ export const portfolioData = {
   hero: {
     badge: "AVAILABLE FOR FREELANCE & REMOTE",
     headline: "I build modern websites and scalable web applications for startups and growing businesses.",
-    subheadline: "Full-stack developer with 3+ years of experience creating responsive interfaces, integrating backend systems, and delivering clean, user-focused digital products.",
+    subheadline: "Full-stack developer with 5+ years of experience creating responsive interfaces, integrating backend systems, and delivering clean, user-focused digital products.",
     supportingText: "I help turn ideas into polished web experiences — from landing pages and business websites to dashboards and full product applications.",
     primaryCTA: "View My Work",
     secondaryCTA: "Hire Me",
     smallNote: "Available for freelance projects, product collaborations, and remote opportunities.",
   },
   trustStrip: [
-    { title: "3+ Years", subtitle: "Development Experience" },
+    { title: "5+ Years", subtitle: "Development Experience" },
     { title: "Frontend to Backend", subtitle: "End-to-End Implementation" },
     { title: "Scalable Solutions", subtitle: "Responsive & Maintainable" },
     { title: "Product Focused", subtitle: "UX, Performance & Quality" },
